@@ -385,31 +385,36 @@ article{
         }
     }
 }
-.bemto{
-    margin: 30px;
-    padding: 15px;
-
+.bemto {
+  margin: 30px;
+  padding: 15px;
 }
+
 .jobs article figure {
   display: flex;              /* يخلي العناصر جنب بعض */
+  flex-wrap: wrap;            /* يخليهم ينزلوا تحت بعض لو مفيش مساحة */
   gap: 10px;                  /* مسافة بينهم */
   justify-content: center;    /* توسيط الصور */
 }
 
-.jobs article figure img {
-  width: 48%;                 /* تخلي كل صورة تاخد أقل من النص */
-  border-radius: 20px;
-}
+.jobs article figure img,
 .jobs article figure video {
-  width: 48%;                 /* تخلي كل صورة تاخد أقل من النص */
+  width: 48%;                 /* في الشاشات الكبيرة ياخدوا نص */
   border-radius: 20px;
 }
 
-.job{
-    article{
-        background-color: var(--yellow);
-    }
+/* موبايل */
+@media (max-width: 768px) {
+  .jobs article figure img,
+  .jobs article figure video {
+    width: 100%;              /* في الشاشات الصغيرة ياخدوا العرض كله */
+  }
 }
+
+.job article {
+  background-color: var(--yellow);
+}
+
 .boot{
     
     .chatbot-blue{
