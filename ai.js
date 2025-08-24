@@ -36,6 +36,9 @@ function addMsg(role, msg) {
 
   item.appendChild(span); item.appendChild(bubble);
   ul.appendChild(item);
+
+  const scrollArea = bySel('.scrol-area');
+  if (scrollArea) scrollArea.scrollTop = scrollArea.scrollHeight;
 }
 
 function showTyping(lang = 'en') {
@@ -56,6 +59,8 @@ function showTyping(lang = 'en') {
     dots = (dots + 1) % 4;
     const base = (lang === 'ar' ? 'جاري الكتابة' : 'typing');
     bubble.textContent = base + '.'.repeat(dots);
+    const scrollArea = bySel('.scrol-area');
+    if (scrollArea) scrollArea.scrollTop = scrollArea.scrollHeight;
   }, 350);
 
   return () => { clearInterval(interval); if (ul.contains(item)) ul.removeChild(item); };
@@ -385,6 +390,15 @@ function initChat() {
     });
     // set English placeholder as requested
     inputEl.placeholder = "Type a message... (e.g. 'What are your skills?')";
-   
+    // try to autofocus on load
+    inputEl.autofocus = true;
+  }
+
+  // no initial welcome message (per request). Input will be focused on load:
+  window.addEventListener('load', () => {
+    const inp = chatInput();
+    if (inp) inp.focus();
+  });
+}
 
 document.addEventListener('DOMContentLoaded', initChat);
