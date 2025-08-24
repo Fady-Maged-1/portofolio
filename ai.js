@@ -391,6 +391,7 @@ function initChat() {
 
   // no initial welcome message (per request). Input will be focused on load:
   window.addEventListener('load', () => {
+    window.scrollTo(0, 0); // Force scroll to top on page load
     const inp = chatInput();
     if (inp) inp.focus();
   });
