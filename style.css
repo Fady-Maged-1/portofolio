@@ -549,10 +549,15 @@ li .ava.user + .mas {
 /* Responsive: على الشاشات الصغيرة نخلي البلوكات بعرض 100% وارتفاع مرن */
 @media (max-width: 1024px) {
   :root { --card-width-chat: 640px; --card-width-info: 360px; --card-height: 640px; }
+  align-items: center;
+        justify-content: center;
 }
 @media (max-width: 768px) {
   body {
-    font-size: 16px; /* تقليل حجم الخط على الموبايل لتوفير المساحة */
+    font-size: 16px;
+    align-items: center;
+        justify-content: center;
+    /* تقليل حجم الخط على الموبايل لتوفير المساحة */
   }
   .chatbot-blue {
     flex-direction: column;
