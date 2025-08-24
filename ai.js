@@ -385,16 +385,6 @@ function initChat() {
     });
     // set English placeholder as requested
     inputEl.placeholder = "Type a message... (e.g. 'What are your skills?')";
-    // try to autofocus on load
-    inputEl.autofocus = true;
-  }
-
-  // no initial welcome message (per request). Input will be focused on load:
-  window.addEventListener('load', () => {
-    window.scrollTo(0, 0); // Force scroll to top on page load
-    const inp = chatInput();
-    if (inp) inp.focus();
-  });
-}
+   
 
 document.addEventListener('DOMContentLoaded', initChat);
