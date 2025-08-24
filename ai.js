@@ -60,7 +60,7 @@ function showTyping(lang = 'en') {
     const base = (lang === 'ar' ? 'جاري الكتابة' : 'typing');
     bubble.textContent = base + '.'.repeat(dots);
     const scrollArea = bySel('.scrol-area');
-    if (scrollArea) scrollArea.scrollTop = scrollArea.scrollHeight;
+    // if (scrollArea) scrollArea.scrollTop = scrollArea.scrollHeight;
   }, 350);
 
   return () => { clearInterval(interval); if (ul.contains(item)) ul.removeChild(item); };
